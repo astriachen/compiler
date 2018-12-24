@@ -1,0 +1,36 @@
+S' S decls decl stmts stmt asgn rel inc left ids E T F type op
+int main if ( ) { } else while for ; , id return = ++ num + - * / float double < > <= >= ==
+S' -> S
+S -> int main ( ) { decls stmts }
+decls -> decls decl
+decls -> decl
+decl -> type ids ;
+stmts -> stmts stmt
+stmts -> stmt
+stmt -> return E ;
+stmt -> asgn ;
+stmt -> type asgn ;
+stmt -> for ( asgn ; rel ; inc ) stmt
+stmt -> if ( rel ) stmt else stmt
+stmt -> while ( rel ) stmt
+stmt -> { stmts }
+asgn -> left = E
+rel -> E op E
+inc -> left ++
+left -> id
+ids -> ids , id
+ids -> id
+E -> E + T
+E -> E - T
+E -> T
+T -> T * F
+T -> T / F
+T -> F
+F -> ( E )
+F -> num
+F -> id
+type -> int | float | double
+op -> < | ==
+op -> >
+op -> <=
+op -> >=
